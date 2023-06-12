@@ -1,79 +1,153 @@
-<aside>
-  <a
-    ><svg width="24" height="24" viewBox="0 0 32 32">
-      <use href="./images/icons.svg#icon-setting" />
-    </svg>
-    Dashboard</a
-  >
-  <ul>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-key-square" />
-        </svg>
-        <span>Dashboard</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-d-square" />
-        </svg>
-        <span>Product</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-user-square" />
-        </svg>
-        <span>Customers</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-wallet-money" />
-        </svg>
-        <span>Income</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-discount-shape" />
-        </svg>
-        <span>Promote</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-    <li>
-      <a href="/"
-        ><svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-message-question" />
-        </svg>
-        <span>Help</span>
-        <svg width="24" height="24" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-chevron-right" />
-        </svg>
-      </a>
-    </li>
-  </ul>
-  <img src="./images/user-logo.jpg" alt="current user logo" width="42" />
-  <h3>Evano</h3>
-  <h4>Project manager</h4>
+<aside class="side-bar">
+  <div class="side-bar__logo-wrapper">
+    <a class="side-bar__logo-link"
+      ><svg width="30" height="33" viewBox="0 0 32 32" class="side-bar__icon">
+        <use href="./images/icons.svg#icon-setting" />
+      </svg>
+      Dashboard</a
+    >
+    <p class="app-version">v.01</p>
+  </div>
+  <nav class="side-bar__nav">
+    <ul class="side-bar__list">
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-key-square" />
+          </svg>
+          <span class="side-bar__item-text">Dashboard</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-d-square" />
+          </svg>
+          <span class="side-bar__item-text">Product</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link current"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-user-square" />
+          </svg>
+          <span class="side-bar__item-text">Customers</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-wallet-money" />
+          </svg>
+          <span class="side-bar__item-text">Income</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-discount-shape" />
+          </svg>
+          <span class="side-bar__item-text">Promote</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+      <li class="side-bar__list-item">
+        <a href="/" class="side-bar__link"
+          ><svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__icon"
+          >
+            <use href="./images/icons.svg#icon-message-question" />
+          </svg>
+          <span class="side-bar__item-text">Help</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            class="side-bar__arrow-icon"
+          >
+            <use href="./images/icons.svg#icon-chevron-right" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="side-bar__user-wrapper">
+    <img
+      class="side-bar__user-logo"
+      src="./images/user-logo.jpg"
+      alt="current user logo"
+      width="42"
+    />
+    <div>
+      <h3 class="side-bar__user-name">Evano</h3>
+      <h4 class="side-bar__user-role">Project manager</h4>
+    </div>
+  </div>
 </aside>

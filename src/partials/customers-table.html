@@ -1,13 +1,21 @@
-<section>
-  <h2>All customers</h2>
-  <p>Active members</p>
-  <form autocomplete="off">
-    <input type="submit" />
-    <input type="text" />
-  </form>
-  <table>
-    <thead>
-      <tr>
+<section class="section">
+  <div class="section__header-wrapper">
+    <div>
+      <h2 class="section__title">All customers</h2>
+      <p class="section__filter">Active members</p>
+    </div>
+    <form autocomplete="off" class="section__form">
+      <button type="submit" class="section__submit-btn">
+        <svg width="24px" height="24px" viewBox="0 0 32 32">
+          <use href="./images/icons.svg#icon-search" />
+        </svg>
+      </button>
+      <input type="text" class="section__input" placeholder="Search" />
+    </form>
+  </div>
+  <table class="table">
+    <thead class="table__head">
+      <tr class="table__row">
         <th>Customer name</th>
         <th>Company</th>
         <th>Phone Number</th>
@@ -16,8 +24,8 @@
         <th>Status</th>
       </tr>
     </thead>
-    <tbody data-table-body>
-      <tr>
+    <tbody class="table__body" data-table-body>
+      <tr class="table__body-row">
         <td></td>
         <td></td>
         <td></td>

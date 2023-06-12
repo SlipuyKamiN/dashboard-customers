@@ -1,0 +1,14 @@
+.main {
+  padding-top: 41;
+  padding-bottom: 41;
+  padding-left: 71;
+  padding-right: 95;
+  background-color: $main-background-color;
+  flex-grow: 1;
+}
+
+.main__title {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 51px;
+}

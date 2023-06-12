@@ -75,7 +75,7 @@ const createMarkup = data => {
       const { name, company, phone, email, country, active } = customer;
 
       return `
-          <tr>
+          <tr class="table__body-row">
           <td>${name}</td>
           <td>${company}</td>
           <td>${phone}</td>
