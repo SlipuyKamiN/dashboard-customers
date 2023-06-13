@@ -4,6 +4,10 @@
   border-radius: 30px;
   background-color: $classic-white;
   box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+
+  @media screen and (max-width: 480px) {
+    overflow-x: scroll;
+  }
 }
 
 .section__header-wrapper {
@@ -36,6 +40,10 @@
   border-radius: 10px;
   background-color: $input-bg-color;
   border: none;
+
+  &::placeholder {
+    color: $gray-text-color;
+  }
 }
 
 .section__submit-btn {
@@ -48,13 +56,95 @@
 
 .table {
   width: 100%;
-}
-
-.table__head {
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 30px;
+  overflow-x: scroll;
 }
 
 .table__row {
+  overflow-x: scroll;
   letter-spacing: -0.01em;
-  color: $table-text-color;
-  border-bottom: 1px solid red;
+  color: $gray-text-color;
+  border-bottom: 1px solid #eeeeee;
+  th {
+    padding: 14px 0;
+  }
+}
+
+.table__body-row {
+  overflow-x: scroll;
+  font-size: 14px;
+  font-weight: 500;
+  td {
+    padding: 24px 0;
+    color: $table-text-color;
+    border-bottom: 1px solid #eeeeee;
+  }
+}
+
+.status {
+  display: block;
+  width: 80px;
+  padding: 4px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  border-radius: 4px;
+
+  &--active {
+    background-color: rgba($color: $active-green-bg-color, $alpha: 0.38);
+    border: 1px solid $active-green-color;
+    color: $active-green-color;
+  }
+
+  &--inactive {
+    color: $inactive-red-color;
+    background-color: rgba($color: $inactive-red-bg-color, $alpha: 0.38);
+    border: 1px solid $inactive-red-color;
+  }
+}
+
+.section__footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section__description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: $gray-text-color;
+}
+
+.section__pagination-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section__pagination-button {
+  cursor: pointer;
+  width: 26px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 1;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: $buttons-digit-color;
+  text-align: center;
+
+  &.current {
+    background-color: $current-page-color;
+    border: 1px solid $current-page-color;
+    color: $classic-white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $current-page-color;
+    border: 1px solid $current-page-color;
+    color: $classic-white;
+  }
 }
