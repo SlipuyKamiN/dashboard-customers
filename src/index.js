@@ -1,103 +1,86 @@
+import { getUsers } from './js/api';
+import debounce from 'lodash.debounce';
+
 const refs = {
   tableBody: document.querySelector('[data-table-body]'),
-  sideBarLogo: document.querySelector('[data-toggle-side-bar]'),
-  sideBar: document.querySelector('[data-side-bar]'),
+  totalCounter: document.querySelector('[data-total-counter]'),
+  sortByButtons: document.querySelectorAll('[data-sort-by]'),
+  searchInput: document.querySelector('[data-search-input]'),
 };
 
-const customersData = [
-  {
-    name: 'Jane Cooper',
-    company: 'Microsoft',
-    phone: '(225)555-0118',
-    email: 'jane@microsoft.com',
-    country: 'United States',
-    active: true,
-  },
-  {
-    name: 'Floyd Miles',
-    company: 'Yahoo',
-    phone: '(205)555-0100',
-    email: 'floyd@yahoo.com',
-    country: 'Kiribati',
-    active: false,
-  },
-  {
-    name: 'Ronald Richards',
-    company: 'Adobe',
-    phone: '(302)555-0107',
-    email: 'roland@adobe.com',
-    country: 'Israel',
-    active: false,
-  },
-  {
-    name: 'Marvin McKinney',
-    company: 'Tesla',
-    phone: '(252)555-0126',
-    email: 'marvin@tesla.com',
-    country: 'Iran',
-    active: true,
-  },
-  {
-    name: 'Jerome Bell',
-    company: 'Google',
-    phone: '(629)555-0129',
-    email: 'jerome@google.com',
-    country: 'Réunion',
-    active: true,
-  },
-  {
-    name: 'Katryn Murphy',
-    company: 'Microsoft',
-    phone: '(406)555-0120',
-    email: 'katryn@microsoft.com',
-    country: 'Curaçao',
-    active: true,
-  },
-  {
-    name: 'Jacob Jones',
-    company: 'Yahoo',
-    phone: '(208) 555-0112',
-    email: 'jacob@yahoo.com',
-    country: 'Brazil',
-    active: true,
-  },
-  {
-    name: 'Kristin Watson',
-    company: 'Facebook',
-    phone: '(704) 555-0127',
-    email: 'kristin@facebook.com',
-    country: 'Åland Islands',
-    active: false,
-  },
-];
+let data = [];
+let reverse = true;
 
-const createMarkup = data => {
-  return data
-    .map(customer => {
-      const { name, company, phone, email, country, active } = customer;
+(async () => {
+  data = await getUsers();
+})();
+
+const handleSort = async event => {
+  let sortBy = event.target.dataset.sortBy;
+
+  sortedData = data.sort((prevItem, nextItem) => {
+    if (sortBy === 'id') {
+      if (reverse) {
+        return nextItem.id - prevItem.id;
+      }
+      return prevItem.id - nextItem.id;
+    }
+
+    if (reverse) {
+      return eval(`prevItem.${sortBy}`).localeCompare(
+        eval(`nextItem.${sortBy}`)
+      );
+    }
+
+    return eval(`nextItem.${sortBy}`).localeCompare(eval(`prevItem.${sortBy}`));
+  });
+
+  reverse = !reverse;
+  createMarkup(sortedData);
+};
+
+const handleSearch = async ({ target: { value } }) => {
+  value = value.toLowerCase();
+
+  filteredData = data.filter(({ name, username, address, company }) => {
+    return (
+      name.toLowerCase().includes(value) ||
+      username.toLowerCase().includes(value) ||
+      address.city.toLowerCase().includes(value) ||
+      company.name.toLowerCase().includes(value)
+    );
+  });
+  createMarkup(filteredData);
+};
+
+const createMarkup = async data => {
+  if (!data) {
+    data = await getUsers();
+  }
+
+  const markup = data
+    .map(user => {
+      const { id, name, username, email, address, company } = user;
 
       return `
           <tr class="table__body-row">
+          <td>${id}</td>
           <td>${name}</td>
-          <td>${company}</td>
-          <td>${phone}</td>
+          <td>${username}</td>
           <td>${email}</td>
-          <td>${country}</td>
-          <td>
-          <span class="status ${
-            active ? 'status--active' : 'status--inactive'
-          }">${active ? 'Active' : 'Inactive'}</span>
-          </td>
-
+          <td>${address.city}</td>
+          <td>${company.name}</td>
         </tr>
         `;
     })
     .join('');
-};
 
-const toggleSideBar = () => {
-  refs.sideBar.classList.toggle('open');
+  refs.tableBody.innerHTML = markup;
+  refs.totalCounter.innerHTML = data.length;
 };
+createMarkup();
 
-refs.sideBarLogo.addEventListener('click', toggleSideBar);
-refs.tableBody.insertAdjacentHTML('beforeend', createMarkup(customersData));
+refs.sortByButtons.forEach(button => {
+  button.addEventListener('click', handleSort);
+});
+refs.searchInput.addEventListener('input', debounce(handleSearch, 250));

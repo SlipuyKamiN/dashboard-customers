@@ -17,3 +17,28 @@
   font-weight: 500;
   margin-bottom: 51px;
 }
+
+.side-bar__logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 52px;
+
+  .app-version {
+    color: #838383;
+    align-self: flex-end;
+    font-size: 10px;
+  }
+}
+
+.side-bar__logo-link {
+  cursor: pointer;
+  height: 39px;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}

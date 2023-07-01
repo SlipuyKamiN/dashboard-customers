@@ -1,66 +1,49 @@
 <section class="section">
   <div class="section__header-wrapper">
     <div>
-      <h2 class="section__title">All customers</h2>
-      <p class="section__filter">Active members</p>
+      <h2 class="section__title">All users</h2>
     </div>
     <form autocomplete="off" class="section__form">
-      <button type="submit" class="section__submit-btn">
-        <svg width="24px" height="24px" viewBox="0 0 32 32">
-          <use href="./images/icons.svg#icon-search" />
-        </svg>
-      </button>
-      <input type="text" class="section__input" placeholder="Search" />
+      <svg
+        width="24px"
+        height="24px"
+        viewBox="0 0 32 32"
+        class="section__submit-btn"
+      >
+        <use href="./images/icons.svg#icon-search" />
+      </svg>
+      <input
+        type="text"
+        class="section__input"
+        placeholder="Search"
+        data-search-input
+      />
     </form>
   </div>
   <table class="table">
     <thead class="table__head">
       <tr class="table__row">
-        <th>Customer name</th>
-        <th>Company</th>
-        <th>Phone Number</th>
+        <th>
+          <button class="table__sort-button" data-sort-by="id">ID</button>
+        </th>
+        <th>
+          <button class="table__sort-button" data-sort-by="name">Name</button>
+        </th>
+        <th>Username</th>
         <th>Email</th>
-        <th>Country</th>
-        <th>Status</th>
+        <th>
+          <button class="table__sort-button" data-sort-by="address.city">
+            City
+          </button>
+        </th>
+        <th>Company</th>
       </tr>
     </thead>
     <tbody class="table__body" data-table-body></tbody>
   </table>
   <div class="section__footer-wrapper">
-    <p class="section__description">Showing data 1 to 8 of 256K entries</p>
-    <ul class="section__pagination-list">
-      <li>
-        <button class="section__pagination-button" type="button">
-          <svg width="7px" height="12px" viewBox="0 0 10 10">
-            <use href="./images/icons.svg#icon-arrow-left" />
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button class="section__pagination-button current" type="button">
-          1
-        </button>
-      </li>
-      <li>
-        <button class="section__pagination-button" type="button">2</button>
-      </li>
-      <li>
-        <button class="section__pagination-button" type="button">3</button>
-      </li>
-      <li>
-        <button class="section__pagination-button" type="button">4</button>
-      </li>
-      <li>...</li>
-      <li>
-        <button class="section__pagination-button" type="button">40</button>
-      </li>
-      <li>
-        <button class="section__pagination-button" type="button">
-          <svg width="7px" height="12px" viewBox="0 0 10 10">
-            <use href="./images/icons.svg#icon-arrow-right" />
-          </svg>
-        </button>
-      </li>
-    </ul>
+    <p class="section__description">
+      Total users: <span data-total-counter></span>
+    </p>
   </div>
 </section>
