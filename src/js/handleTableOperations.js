@@ -18,7 +18,7 @@ let reverse = true;
 const handleSort = async event => {
   let sortBy = event.target.dataset.sortBy;
 
-  sortedData = data.sort((prevItem, nextItem) => {
+  let sortedData = data.sort((prevItem, nextItem) => {
     if (sortBy === 'id') {
       if (reverse) {
         return nextItem.id - prevItem.id;
@@ -42,7 +42,7 @@ const handleSort = async event => {
 const handleSearch = async ({ target: { value } }) => {
   value = value.toLowerCase();
 
-  filteredData = data.filter(({ name, username, address, company }) => {
+  let filteredData = data.filter(({ name, username, address, company }) => {
     return (
       name.toLowerCase().includes(value) ||
       username.toLowerCase().includes(value) ||
