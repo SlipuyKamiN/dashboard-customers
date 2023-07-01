@@ -9,5 +9,6 @@ export const getUsers = async () => {
     return data;
   } catch (error) {
     console.log(error);
+    alert('Oops, something went wrong. Please reload the page');
   }
 };

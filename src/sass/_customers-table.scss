@@ -16,18 +16,6 @@
   margin-bottom: 40px;
 }
 
-.section__title {
-  font-size: 22px;
-  line-height: 1.5;
-  margin-bottom: 7px;
-}
-
-.section__filter {
-  font-size: 14px;
-  line-height: 1.5;
-  color: $active-green-bg-color;
-}
-
 .section__form {
   width: 216px;
   position: relative;
@@ -46,7 +34,9 @@
   }
 }
 
-.section__submit-btn {
+.section__search-icon {
+  width: 25px;
+  height: 25px;
   position: absolute;
   background-color: transparent;
   border: none;
@@ -73,12 +63,25 @@
 }
 
 .table__sort-button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   cursor: pointer;
   font-weight: inherit;
   letter-spacing: -0.01em;
   color: $gray-text-color;
   border: none;
   background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: $current-page-color;
+  }
+}
+
+.table__sort-icon {
+  width: 15px;
+  height: 15px;
 }
 
 .table__body-row {
@@ -92,29 +95,6 @@
   }
 }
 
-.status {
-  display: block;
-  width: 80px;
-  padding: 4px 0;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 500;
-  border-radius: 4px;
-
-  &--active {
-    background-color: rgba($color: $active-green-bg-color, $alpha: 0.38);
-    border: 1px solid $active-green-color;
-    color: $active-green-color;
-  }
-
-  &--inactive {
-    color: $inactive-red-color;
-    background-color: rgba($color: $inactive-red-bg-color, $alpha: 0.38);
-    border: 1px solid $inactive-red-color;
-  }
-}
-
 .section__footer-wrapper {
   display: flex;
   justify-content: space-between;
@@ -124,36 +104,4 @@
   font-size: 14px;
   line-height: 1.5;
   color: $gray-text-color;
-}
-
-.section__pagination-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.section__pagination-button {
-  cursor: pointer;
-  width: 26px;
-  height: 24px;
-  font-size: 12px;
-  line-height: 1;
-  border: 1px solid #eeeeee;
-  border-radius: 4px;
-  background-color: #f5f5f5;
-  color: $buttons-digit-color;
-  text-align: center;
-
-  &.current {
-    background-color: $current-page-color;
-    border: 1px solid $current-page-color;
-    color: $classic-white;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $current-page-color;
-    border: 1px solid $current-page-color;
-    color: $classic-white;
-  }
 }
